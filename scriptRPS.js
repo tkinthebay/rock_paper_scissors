@@ -25,9 +25,33 @@ function playRound(playerSelection, computerSelection) {
         playRound();
     }
 
-    ((player == "ROCK" && comp == "SCISSORS") || (player == "SCISSORS" && comp == "PAPER") || (player == "PAPER" && comp == "ROCK")) ? 
-    console.log(`You win! ${player} beats ${comp}!`) : console.log(`You lose! ${comp} beats ${player}.`)
+    if ((player == "ROCK" && comp == "SCISSORS") || (player == "SCISSORS" && comp == "PAPER") || (player == "PAPER" && comp == "ROCK")) {
+        return `You win! ${player} beats ${comp}!`
+    } 
+    else {return `You lose! ${comp} beats ${player}.`} 
+}
+
+// console.log(playRound(playerSelection=prompt("Best of 5. Please enter your choice of 'rock', 'paper', or 'scissors'."), getComputerChoice()))
+
+
+
+function game(){
+    let playerScore=0;
+let compScore=0;
+while (playerScore<3 && compScore<3) {
+
+console.log(`Your score is ${playerScore}. The computer's score is ${compScore}.`);
+
+
+if (playRound(playerSelection=prompt("Best of 5. Please enter your choice of 'rock', 'paper', or 'scissors'."), getComputerChoice()).substr(0,1)=="w") {
+    playerScore=playerScore++;
+} else {compScore=compScore++;}
+}
+
+if (playerScore==3) {
+    alert("You won 3 of the 5 games. You are the ultimate, grand daddy, master, champion of rock, paper, scissors. Congrats!")
+} else {alert("You lost 3 of the 5 games...to a computer... :(")}
 
 }
 
-console.log(playRound(playerSelection=prompt("Please enter your choice of 'rock', 'paper', or 'scissors'."), getComputerChoice()))
+game()
