@@ -22,7 +22,7 @@ function playRound(playerSelection, computerSelection) {
 
     if (player == comp) {
         alert("Uh oh...you made the same choice as the computer. No one wins. You must play again.")
-        playRound();
+        playRound(playerSelection=prompt("Best of 5. Please enter your choice of 'rock', 'paper', or 'scissors'."), getComputerChoice());
     }
 
     if ((player == "ROCK" && comp == "SCISSORS") || (player == "SCISSORS" && comp == "PAPER") || (player == "PAPER" && comp == "ROCK")) {
@@ -37,15 +37,18 @@ function playRound(playerSelection, computerSelection) {
 
 function game(){
     let playerScore=0;
-let compScore=0;
+    let compScore=0;
 while (playerScore<3 && compScore<3) {
+
+result=playRound(playerSelection=prompt("This game is best of 5 so first to 3 wins. Please enter your choice of 'rock', 'paper', or 'scissors'."), getComputerChoice())
+console.log(result);
+
+if (result.substr(4,1)=="w") {
+    playerScore=playerScore++;
+} else {compScore=compScore++;}
 
 console.log(`Your score is ${playerScore}. The computer's score is ${compScore}.`);
 
-
-if (playRound(playerSelection=prompt("Best of 5. Please enter your choice of 'rock', 'paper', or 'scissors'."), getComputerChoice()).substr(0,1)=="w") {
-    playerScore=playerScore++;
-} else {compScore=compScore++;}
 }
 
 if (playerScore==3) {
