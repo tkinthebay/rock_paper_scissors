@@ -1,17 +1,33 @@
-// 1. create function that randomly returns rock, paper, or scissors
-// function can choose random number 0=rock, 1=paper, 2=scissors
-
-
 function getComputerChoice() {
     switch (Math.floor(Math.random() * 3)) {
         case 0:
             console.log("Rock");
-            break;
+            return "Rock";
         case 1:
             console.log("Paper");
-            break;
+            return "Paper";
         case 2:
             console.log("Scissors");
-            break;
+            return "Scissors";
     }
 }
+
+function playRound(playerSelection, computerSelection) {
+
+    let player = playerSelection.toUpperCase();
+    let comp = computerSelection.toUpperCase();
+
+    console.log(`You chose: ${playerSelection}.`);
+    console.log(`The computer chose: ${computerSelection}.`);
+
+    if (player == comp) {
+        alert("Uh oh...you made the same choice as the computer. No one wins. You must play again.")
+        playRound();
+    }
+
+    ((player == "ROCK" && comp == "SCISSORS") || (player == "SCISSORS" && comp == "PAPER") || (player == "PAPER" && comp == "ROCK")) ? 
+    console.log(`You win! ${player} beats ${comp}!`) : console.log(`You lose! ${comp} beats ${player}.`)
+
+}
+
+console.log(playRound(playerSelection=prompt("Please enter your choice of 'rock', 'paper', or 'scissors'."), getComputerChoice()))
