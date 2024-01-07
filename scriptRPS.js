@@ -1,3 +1,4 @@
+// get computer choice
 function getComputerChoice() {
     switch (Math.floor(Math.random() * 3)) {
         case 0:
@@ -12,6 +13,7 @@ function getComputerChoice() {
     }
 }
 
+// initiate round
 function playRound(playerSelection, computerSelection) {
 
     let player = playerSelection.toUpperCase();
@@ -31,7 +33,7 @@ function playRound(playerSelection, computerSelection) {
     else { return `You lose! ${comp} beats ${player}.` }
 }
 
-
+// initiate best of 5
 function game() {
     let playerScore = 0;
     let compScore = 0;
