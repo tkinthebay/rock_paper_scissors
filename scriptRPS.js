@@ -2,6 +2,7 @@ const rock=document.getElementById("rock");
 const paper=document.getElementById("paper");
 const scissors=document.getElementById("scissors");
 const buttons = document.getElementsByTagName("button");
+const divider=document.getElementById("divider");
 
 // get computer choice
 function getComputerChoice() {
@@ -21,14 +22,21 @@ function getComputerChoice() {
 // initiate round
 function playRound(playerSelection, computerSelection) {
 
+    const p = document.createElement('p');
+    const h1 = document.createElement('h1');
+
+    if (divider.hasChildNodes()) {
+        divider.innerHTML="";
+    }
+
     let player = playerSelection.toUpperCase();
     let comp = computerSelection.toUpperCase();
 
-    console.log(`You chose: ${playerSelection}.`);
-    console.log(`The computer chose: ${computerSelection}.`);
+    p.textContent =`You chose: ${player}.\n The computer chose: ${comp}.`;
 
     if (player == comp) {
-        alert("Uh oh...you made the same choice as the computer. No one wins. You must play again.")
+        h1.textContent = "Uh oh...you made the same choice as the computer. No one wins. You must play again."
+        divider.appendChild(h1);
         
         for(let i=0; i<buttons.length; i++) {
             buttons[i].addEventListener("click", function(){
@@ -38,12 +46,16 @@ function playRound(playerSelection, computerSelection) {
         
     }
 
-    if ((player == "ROCK" && comp == "SCISSORS") || (player == "SCISSORS" && comp == "PAPER") || (player == "PAPER" && comp == "ROCK")) {
-        alert(`You win! ${player} beats ${comp}!`);
+    else if ((player == "ROCK" && comp == "SCISSORS") || (player == "SCISSORS" && comp == "PAPER") || (player == "PAPER" && comp == "ROCK")) {
+        h1.textContent = `You win! ${player} beats ${comp}!`;
+        divider.appendChild(p);
+        divider.appendChild(h1);
         return `You win! ${player} beats ${comp}!`
     }
     else { 
-        alert(`You lose! ${comp} beats ${player}.`)
+        h1.textContent = `You lose! ${comp} beats ${player}.`
+        divider.appendChild(p);
+        divider.appendChild(h1);
         return `You lose! ${comp} beats ${player}.` }
 }
 
