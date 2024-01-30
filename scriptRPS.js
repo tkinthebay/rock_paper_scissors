@@ -1,42 +1,57 @@
-// get computer choice
-function getComputerChoice() {
-    switch (Math.floor(Math.random() * 3)) {
-        case 0:
-            // console.log("Rock");
-            return "Rock";
-        case 1:
-            // console.log("Paper");
-            return "Paper";
-        case 2:
-            // console.log("Scissors");
-            return "Scissors";
-    }
-}
+const rock=document.getElementById("rock");
+const paper=document.getElementById("paper");
+const scissors=document.getElementById("scissors");
 
-// initiate round
-function playRound(playerSelection, computerSelection) {
+console.log(rock);
+console.log(paper);
+console.log(scissors);
 
-    let player = playerSelection.toUpperCase();
-    let comp = computerSelection.toUpperCase();
 
-    console.log(`You chose: ${playerSelection}.`);
-    console.log(`The computer chose: ${computerSelection}.`);
+// // get computer choice
+// function getComputerChoice() {
+//     switch (Math.floor(Math.random() * 3)) {
+//         case 0:
+//             // console.log("Rock");
+//             return "Rock";
+//         case 1:
+//             // console.log("Paper");
+//             return "Paper";
+//         case 2:
+//             // console.log("Scissors");
+//             return "Scissors";
+//     }
+// }
 
-    if (player == comp) {
-        alert("Uh oh...you made the same choice as the computer. No one wins. You must play again.")
-        playRound(playerSelection = prompt("Best of 5. Please enter your choice of 'rock', 'paper', or 'scissors'."), getComputerChoice());
-    }
+// // initiate round
+// function playRound(playerSelection, computerSelection) {
 
-    if ((player == "ROCK" && comp == "SCISSORS") || (player == "SCISSORS" && comp == "PAPER") || (player == "PAPER" && comp == "ROCK")) {
-        alert(`You win! ${player} beats ${comp}!`);
-        return `You win! ${player} beats ${comp}!`
-    }
-    else { 
-        alert(`You lose! ${comp} beats ${player}.`)
-        return `You lose! ${comp} beats ${player}.` }
-}
+//     let player = playerSelection.toUpperCase();
+//     let comp = computerSelection.toUpperCase();
 
-playRound(playerSelection = prompt("Please enter your choice of 'rock', 'paper', or 'scissors'."), getComputerChoice())
+//     console.log(`You chose: ${playerSelection}.`);
+//     console.log(`The computer chose: ${computerSelection}.`);
+
+//     if (player == comp) {
+//         alert("Uh oh...you made the same choice as the computer. No one wins. You must play again.")
+//         // playRound(playerSelection = prompt("Best of 5. Please enter your choice of 'rock', 'paper', or 'scissors'."), getComputerChoice());
+//         rock.addEventListener("click", playRound(playerSelection="rock", getComputerChoice()));
+//         paper.addEventListener("click", playRound(playerSelection="paper", getComputerChoice()));
+//         scissors.addEventListener("click", playRound(playerSelection="scissors", getComputerChoice()));
+
+//     }
+
+//     if ((player == "ROCK" && comp == "SCISSORS") || (player == "SCISSORS" && comp == "PAPER") || (player == "PAPER" && comp == "ROCK")) {
+//         alert(`You win! ${player} beats ${comp}!`);
+//         return `You win! ${player} beats ${comp}!`
+//     }
+//     else { 
+//         alert(`You lose! ${comp} beats ${player}.`)
+//         return `You lose! ${comp} beats ${player}.` }
+// }
+
+// rock.addEventListener("click", playRound(playerSelection="rock", getComputerChoice()));
+// paper.addEventListener("click", playRound(playerSelection="paper", getComputerChoice()));
+// scissors.addEventListener("click", playRound(playerSelection="scissors", getComputerChoice()));
 
 
 // // initiate best of 5
