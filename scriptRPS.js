@@ -18,10 +18,7 @@ function getComputerChoice() {
     }
 }
 
-// console.log(`The Computer chose: ${getComputerChoice()}`);
-
 // initiate round
-
 function playRound(playerSelection, computerSelection) {
 
     let player = playerSelection.toUpperCase();
